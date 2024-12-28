@@ -12,15 +12,10 @@
             <a href="admin.html">Admin</a>
             <a href="books.html">Books</a>
         </nav>
-        <h1>Login Page</h1>
-        <form id="loginForm" >
-            <label for="email">Email :</label>
-            <input type="email" id="email" required>
-            <label for="password">Password :</label>
-            <input type="password" id="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div id="error-message"></div>
-        <script src="js/index.js"></script>
+        <h1>Books Page</h1>
+        <button id="showAvailableBooks">Show Available Books</button>
+        <button id="showBorrowedBooks">Show Borrowed Books</button>
+        <div id="bookList" class="grid"></div>
+        <script src="js/books.js"></script>
     </body>
 </html>
