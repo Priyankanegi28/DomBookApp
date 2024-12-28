@@ -50,5 +50,13 @@ async function borrowBook(id){
 }
 
 async function returnBook(id){
-    if(confirm)
+    if(confirm('are you sure?')) {
+        await fetch(`https://amused-twilight-beast.glitch.me/books/${id}`,{
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({isAvailable:true, borrowedDays:null }),
+        });
+        alert('book returned');
+        document.getElementById('showBorrowedBooks').click();
+    }
 }
