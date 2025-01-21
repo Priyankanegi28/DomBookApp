@@ -1,41 +1,177 @@
+/* Global Styles */
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
 }
+h1 {
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+/* Navigation Bar */
 nav {
-    background: #333;
+    background: #444;
     color: #fff;
-    padding: 10px;
+    padding: 15px 20px;
     text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
-h1{
-    text-align: center;
-}
-nav a{
-    color: white;
-    margin: 0 10px;
+nav a {
+    color: #fff;
+    margin: 0 15px;
     text-decoration: none;
+    font-size: 1.1em;
+    font-weight: bold;
+    transition: color 0.3s ease;
 }
+nav a:hover {
+    color: #ff6f61;
+}
+
+/* Form Styles */
 form {
-    margin: 20px auto;
-    max-width: 300px;
+    background: #fff;
+    margin: 30px auto;
+    max-width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
 }
-input, select, button {
+form input, form select, form button {
     display: block;
-    margin: 10px auto;
-    padding: 10px;
-    width: 100%;
+    margin: 15px auto;
+    padding: 12px;
+    width: 90%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
 }
-.grid{
+form button {
+    background: #444;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+form button:hover {
+    background: #ff6f61;
+}
+
+/* Grid Layout */
+.grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 10px;
-    margin: 20px;
-}
-.grid div{
-    border: 1px solid #ccc;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 20px auto;
     padding: 10px;
+    max-width: 1200px;
+}
+
+/* Book Card Styles */
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.book-card p {
+    font-size: 1em;
+    color: #666;
+    margin: 5px 0;
+}
+.book-card button {
+    margin-top: 10px;
+    background: #444;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.book-card button:hover {
+    background: #ff6f61;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav a {
+        margin: 0 10px;
+        font-size: 1em;
+    }
+    form {
+        width: 90%;
+    }
+    .book-card {
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5em;
+    }
+    nav {
+        padding: 10px;
+    }
+    nav a {
+        font-size: 0.9em;
+    }
+}
+
+.book-card button {
+    margin: 10px 5px; /* Add spacing between buttons */
+    background: #444;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.book-card button:first-child {
+    margin-right: 15px; /* Adds more space between Verify and Delete buttons */
+}
+
+.book-card button:hover {
+    background: #ff6f61;
+}
+
+#bookList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Four books per row */
+    gap: 20px; /* Adds spacing between the cards */
+    padding: 20px;
+    justify-content: center; /* Centers the grid */
+}
+
+.book-card {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Ensures the card adjusts to the grid */
+    max-width: 250px; /* Restricts the card size */
     text-align: center;
 }
+
+.book-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+
