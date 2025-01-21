@@ -155,7 +155,11 @@ https://amused-twilight-beast.glitch.me/books
 ---
 
 ## **Screenshots**
-(Add screenshots for Login Page, Admin Page, and User Book Page.)
+
+![Login Page](screenshots/login.png)
+![Admin Page](screenshots/admin.png)
+![Books Page](screenshots/books.png)
+
 
 ---
 
