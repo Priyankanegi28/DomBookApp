@@ -1,29 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Admin</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="admin.html">Admin</a>
-            <a href="books.html">Books</a>
-        </nav>
-        <h1>Admin Page</h1>
-        <form id="addBookForm">
-            <input type="text" id="title" placeholder="Book Title" required>
-            <input type="text" id="author" placeholder="Author" required>
-            <select id="category" required>
-                <option value="Fiction">Fiction</option>
-                <option value="Comedy">Comedy</option>
-                <option value="Technical">Technical</option>
-            </select>
-            <button type="submit">Add Book</button>
-        </form>
-        <div id="bookList" class="grid"></div>
-        <script src="js/admin.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomBookApp - Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-book-open"></i> DomBookApp
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="admin.html" class="active"><i class="fas fa-user-shield"></i> Admin</a>
+                <a href="books.html"><i class="fas fa-book"></i> Books</a>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-user-shield"></i> Admin Dashboard</h1>
+            <p>Manage all books in the library system</p>
+        </div>
+
+        <div class="form-card">
+            <h2 class="form-title"><i class="fas fa-plus-circle"></i> Add New Book</h2>
+            <form id="addBookForm">
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input type="text" id="title" class="form-control" placeholder="Enter book title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="text" id="author" class="form-control" placeholder="Enter author name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="category">Category</label>
+                    <select id="category" class="form-control" required>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Comedy">Comedy</option>
+                        <option value="Technical">Technical</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-save"></i> Add Book
+                </button>
+            </form>
+        </div>
+
+        <div class="form-card">
+            <h2 class="form-title"><i class="fas fa-book"></i> Book Management</h2>
+            <div id="bookList" class="grid"></div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
 </html>

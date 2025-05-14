@@ -1,26 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="admin.html">Admin</a>
-            <a href="books.html">Books</a>
-        </nav>
-        <h1>Login Page</h1>
-        <form id="loginForm" >
-            <label for="email">Email :</label>
-            <input type="email" id="email" required>
-            <label for="password">Password :</label>
-            <input type="password" id="password" required>
-            <button type="submit">Login</button>
-        </form>
-        <div id="error-message"></div>
-        <script src="js/index.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomBookApp - Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-book-open"></i> DomBookApp
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+                <a href="books.html"><i class="fas fa-book"></i> Books</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <div class="auth-tabs">
+            <button class="auth-tab active" data-tab="login">Login</button>
+            <button class="auth-tab" data-tab="register">Register</button>
+        </div>
+        
+        <div class="auth-content">
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form active">
+                <div class="auth-header">
+                    <h1><i class="fas fa-sign-in-alt"></i> Welcome Back</h1>
+                    <p>Login to access your books</p>
+                </div>
+                
+                <form id="loginForm" class="auth-form-content">
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                        <span class="toggle-password" onclick="togglePasswordVisibility('password')">
+                            <i class="fas fa-eye" id="eye-icon-password"></i>
+                        </span>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-sign-in-alt"></i> Login
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <div id="login-error-message" class="error-message"></div>
+                </div>
+            </div>
+            
+            <!-- Registration Form -->
+            <div id="register-form" class="auth-form">
+                <div class="auth-header">
+                    <h1><i class="fas fa-user-plus"></i> Create Account</h1>
+                    <p>Join our reading community</p>
+                </div>
+                
+                <form id="registerForm" class="auth-form-content">
+                    <div class="form-group">
+                        <label for="reg-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="reg-name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="reg-email" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-password"><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" id="reg-password" placeholder="Create a password" required minlength="6">
+                        <span class="toggle-password" onclick="togglePasswordVisibility('reg-password')">
+                            <i class="fas fa-eye" id="eye-icon-reg-password"></i>
+                        </span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="reg-confirm-password"><i class="fas fa-lock"></i> Confirm Password</label>
+                        <input type="password" id="reg-confirm-password" placeholder="Confirm your password" required>
+                    </div>
+                    
+                    <button type="submit" class="auth-btn">
+                        <i class="fas fa-user-plus"></i> Register
+                    </button>
+                </form>
+                
+                <div class="auth-footer">
+                    <div id="register-error-message" class="error-message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/index.js"></script>
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.auth-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+                
+                tab.classList.add('active');
+                document.getElementById(`${tab.dataset.tab}-form`).classList.add('active');
+            });
+        });
+
+        function togglePasswordVisibility(fieldId) {
+            const passwordInput = document.getElementById(fieldId);
+            const eyeIcon = document.getElementById(`eye-icon-${fieldId}`);
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordInput.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        }
+    </script>
+</body>
 </html>

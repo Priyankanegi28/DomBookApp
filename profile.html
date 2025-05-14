@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomBookApp - My Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-book-open"></i> DomBookApp
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="books.html"><i class="fas fa-book"></i> Books</a>
+                <a href="profile.html" class="active"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="profile-info">
+                <h1 id="profile-name">Loading...</h1>
+                <p id="profile-email">user@example.com</p>
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span id="total-borrowed">0</span>
+                        <small>Books Borrowed</small>
+                    </div>
+                    <div class="stat">
+                        <span id="current-borrowed">0</span>
+                        <small>Currently Reading</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-tabs">
+            <button class="profile-tab active" data-tab="current">Currently Borrowed</button>
+            <button class="profile-tab" data-tab="history">Borrowing History</button>
+            <button class="profile-tab" data-tab="settings">Account Settings</button>
+        </div>
+
+        <div class="profile-content">
+            <!-- Currently Borrowed Books -->
+            <div id="current-books" class="tab-content active">
+                <h2><i class="fas fa-bookmark"></i> Your Current Books</h2>
+                <div id="current-books-list" class="grid"></div>
+            </div>
+            
+            <!-- Borrowing History -->
+            <div id="history" class="tab-content">
+                <h2><i class="fas fa-history"></i> Your Reading History</h2>
+                <div id="history-list" class="history-list"></div>
+            </div>
+            
+            <!-- Account Settings -->
+            <div id="settings" class="tab-content">
+                <h2><i class="fas fa-cog"></i> Account Settings</h2>
+                <form id="settings-form" class="form-card">
+                    <div class="form-group">
+                        <label for="settings-name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="settings-name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="settings-email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="settings-email" class="form-control" required disabled>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="settings-password"><i class="fas fa-lock"></i> New Password (leave blank to keep current)</label>
+                        <input type="password" id="settings-password" class="form-control">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="settings-confirm-password"><i class="fas fa-lock"></i> Confirm New Password</label>
+                        <input type="password" id="settings-confirm-password" class="form-control">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Changes
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>

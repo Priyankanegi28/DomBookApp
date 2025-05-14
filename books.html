@@ -1,21 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="stylesheet" href="styles.css">
-    </head>
-    <body>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="admin.html">Admin</a>
-            <a href="books.html">Books</a>
-        </nav>
-        <h1>Books Page</h1>
-        <button id="showAvailableBooks">Show Available Books</button>
-        <button id="showBorrowedBooks">Show Borrowed Books</button>
-        <div id="bookList" class="grid"></div>
-        <script src="js/books.js"></script>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DomBookApp - Books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-book-open"></i> DomBookApp
+            </a>
+            <div class="nav-links">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+                <a href="books.html" class="active"><i class="fas fa-book"></i> Books</a>
+                <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1><i class="fas fa-book"></i> Library Books</h1>
+            <p>Browse and borrow books from our collection</p>
+        </div>
+
+        <div class="search-filter-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by title or author...">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            
+            <div class="filter-controls">
+                <select id="categoryFilter">
+                    <option value="">All Categories</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Technical">Technical</option>
+                </select>
+                
+                <select id="availabilityFilter">
+                    <option value="">All</option>
+                    <option value="available">Available</option>
+                    <option value="borrowed">Borrowed</option>
+                </select>
+                
+                <select id="sortOptions">
+                    <option value="title-asc">Title (A-Z)</option>
+                    <option value="title-desc">Title (Z-A)</option>
+                    <option value="newest">Newest First</option>
+                    <option value="most-borrowed">Most Borrowed</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-card">
+            <div class="btn-group" style="display: flex; gap: 10px; margin-bottom: 20px;">
+                <button id="showAvailableBooks" class="btn btn-primary">
+                    <i class="fas fa-book-open"></i> Available Books
+                </button>
+                <button id="showBorrowedBooks" class="btn btn-secondary">
+                    <i class="fas fa-user-clock"></i> My Borrowed Books
+                </button>
+            </div>
+            
+            <div id="bookList" class="grid"></div>
+        </div>
+    </div>
+
+    <script src="js/books.js"></script>
+</body>
 </html>
